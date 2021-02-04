@@ -27,9 +27,9 @@ const letterPositions = (inputString) => {
     for (let i = 0; i < inputString.length; i++) {
       const character = inputString[i];
       if (results[character] && Array.isArray(results[character])) {
-        results[character].push(i);
+        results[character].push(i); // adds index position of subsequent character occurence within object
       } else {
-        results[character] = [i]; // sets up the array for our index values
+        results[character] = [i]; // sets up the the character for first time in the new object w/ index value
       }
     }
     return results;
