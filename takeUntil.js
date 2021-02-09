@@ -1,13 +1,14 @@
 /* lotide library function - takeUntil.js - function to return a slice of array elements taken from the beginning of an array up to a specified point/character */
 
 const takeUntil = function(arr, callback) {
-  trueArr = [];
+  actualArr = [];
   newArr = [];
+  // iterate through array until point specified by callback function
   for (const value of arr) {
-    trueArr.push(callback(value));
-  }
+    actualArr.push(callback(value));
+  } //create new array 
   for (let i = 0; i < arr.length; i++) {
-    if (!trueArr[i]) {
+    if (!actualArr[i]) {
       newArr.push(arr[i]);
     } else {
       return newArr;
