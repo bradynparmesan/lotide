@@ -1,24 +1,5 @@
-// eqArrays Function to evaluate equality of two arrays
-const eqArrays = (array1, array2) => {
-  if (array1.length !== array2.length) {
-    return false;
-  }
-  for (let i = 0; i < array1.length; i++) {
-    if (array1[i] !== array2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-// assertArraysEqual Function to test equality of two arrays and output message (yes or no)
-const assertArraysEqual = (arrayA, arrayB) => {
-  if (eqArrays(arrayA, arrayB) === true) {
-    console.log("👍 Arrays are Equal");
-  } else {
-    console.log("👎 Arrays are Different");
-  }
-};
+const eqArrays = require('./eqArrays');
+const assertArraysEqual = require('./assertArraysEqual');
 
 // middle Function to return the middle of an array, in a new array (less the tail and head)
 
@@ -44,6 +25,8 @@ const middle = (array) => {
   return newMidArray;
 };
 
+module.exports = middle;
+
 assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
 
 // Returns an empty array if input array is less than three elements - check!
@@ -51,12 +34,3 @@ assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
 // --> If odd number of elements, return singular "middle" value in new array
 // --> If even number of elements, return both "middle" values in new array
 
-// Test Cases
-
-console.log(middle([1])); // => []
-console.log(middle([1, 2])); // => []
-console.log(middle([1, 2, 3])); // => [2]
-console.log(middle([1, 2, 3, 4, 5])); // => [3]
-console.log(middle([1, 2, 3, 4])); // => [2, 3]
-console.log(middle([1, 2, 3, 4, 5, 6])); // => [3, 4]
-console.log(middle([1, 3, "A", "R", 5, 6, 8, "Happy"]));
